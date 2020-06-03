@@ -14,6 +14,7 @@ Disk: 80G
 sudo apt-get update
 sudo apt-get install cockpit -y
 sudo apt-get install cockpit-docker -y
+sudo apt-get install cockpit-pcp -y
 sudo apt-get install docker-compose -y
 sudo systemctl start cockpit
 sudo systemctl enable cockpit
