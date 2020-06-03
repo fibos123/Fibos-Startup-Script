@@ -2,7 +2,7 @@
 
 ## Server requirements
 
-OS: Ubuntu 16.04 / 18.04 / 19.10
+OS: Ubuntu 16.04 / 18.04 / 19.10 / 20.04
 
 Disk: 80G
 
@@ -11,9 +11,12 @@ Disk: 80G
 ```
 #!/bin/sh
 
-sudo apt-get update && sudo apt-get install cockpit cockpit-docker docker-compose -y 
-sudo systemctl start cockpit 
-sudo systemctl enable cockpit 
+sudo apt-get update
+sudo apt-get install cockpit -y
+sudo apt-get install cockpit-docker -y
+sudo apt-get install docker-compose -y
+sudo systemctl start cockpit
+sudo systemctl enable cockpit
 
 cd ~
 git clone https://github.com/fibos123/fibos-node.git
@@ -25,7 +28,7 @@ sed -i 's/your-private-key/这里替换成你的私钥/' ./_config.js
 sed -i 's/"producer-enable": false/"producer-enable": true/' ./_config.js
 
 url=$(curl api.fibos123.com/last_ghost)
-wget -O data.tar.gz $url 
+wget -O data.tar.gz $url
 tar -zxvSf data.tar.gz
 rm data.tar.gz
 sudo docker-compose up -d
