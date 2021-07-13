@@ -18,8 +18,8 @@ sed -i 's/your-private-key/这里替换成你的私钥/' ./_config.js
 sed -i 's/"producer-enable": false/"producer-enable": true/' ./_config.js
 
 url=$(curl api.fibos123.com/last_snapshot)
-mkdir /snapshots
-cd /snapshots
+mkdir snapshots
+cd snapshots
 wget $url
 cd ~/fibos-node
 sudo docker-compose up -d
