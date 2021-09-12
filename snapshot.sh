@@ -8,19 +8,18 @@ sudo apt-get install docker-compose -y
 sudo systemctl start cockpit
 sudo systemctl enable cockpit
 
+PRODUCER_ENABLE=true
+PRODUCER_NAME=你的账号
+PUBLIC_KEY=你的公钥
+PRIVATE_KEY=你的私钥
+
 cd ~
 git clone https://github.com/fibos123/fibos-node.git
 cd fibos-node
 
-sed -i 's/your-account-name/这里替换成你的账号/' ./_config.js
-sed -i 's/your-public-key/这里替换成你的公钥/' ./_config.js
-sed -i 's/your-private-key/这里替换成你的私钥/' ./_config.js
-sed -i 's/"producer-enable": false/"producer-enable": true/' ./_config.js
+echo PRODUCER_ENABLE=$PRODUCER_ENABLE >> .env
+echo PRODUCER_NAME=$PRODUCER_NAME >> .env
+echo PUBLIC_KEY=$PUBLIC_KEY >> .env
+echo PRIVATE_KEY=$PRIVATE_KEY >> .env
 
-mkdir data
-mkdir data/snapshots
-cd data/snapshots
-url=$(curl api.fibos123.com/last_snapshot)
-wget $url
-cd ../..
 sudo docker-compose up -d
