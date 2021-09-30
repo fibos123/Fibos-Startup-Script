@@ -2,7 +2,7 @@
 
 ## Server requirements
 
-OS: Ubuntu 16.04 / 18.04 / 19.10 / 20.04
+OS: Ubuntu 16.04 / 18.04 / 20.04
 
 2 CPUs
 
