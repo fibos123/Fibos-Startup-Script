@@ -3,9 +3,9 @@ PRODUCER_ENABLE=false
 PRODUCER_NAME=fibos123comm
 PUBLIC_KEY=
 PRIVATE_KEY=
+PRODUCER_API_ENABLE=false
 SNAPSHOT_ENABLE=true
 SNAPSHOT_URL=https://github.com/andy-backup/fibos/raw/master/snapshot.bin
-HTTP_HOST=
 
 # install k3s (Lightweight Kubernetes)
 curl -sfL https://get.k3s.io | sh -
@@ -22,6 +22,6 @@ helm install $NAME mingfunwong/fibos-node \
   --set PRODUCER_NAME=$PRODUCER_NAME\
   --set PUBLIC_KEY=$PUBLIC_KEY\
   --set PRIVATE_KEY=$PRIVATE_KEY\
+  --set PRODUCER_API_ENABLE=$PRODUCER_API_ENABLE\
   --set SNAPSHOT_ENABLE=$SNAPSHOT_ENABLE\
-  --set SNAPSHOT_URL=$SNAPSHOT_URL \
-  --set ingress.hosts{0}.host=$HTTP_HOST
+  --set SNAPSHOT_URL=$SNAPSHOT_URL 
